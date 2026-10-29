@@ -54,4 +54,17 @@ public class SingleParam {
 
     @JSONField(name = "SingleOpenId")
     private String singleOpenId;
+
+    // 最大排队等待时长
+    @JSONField(name = "MaxQueueWaitMinutes")
+    private Long maxQueueWaitMinutes;
+
+    public SingleParam(String resource, Integer ringAgainTimes, Integer ringAgainInterval,
+                       String numberPoolNo, List<String> numberList, Integer numberType,
+                       String phone, Map<String, Object> phoneParam, String ext,
+                       Date triggerTime, String ttsContent, Integer type, String singleOpenId) {
+        this(resource, ringAgainTimes, ringAgainInterval, numberPoolNo, numberList,
+                numberType, phone, phoneParam, ext, triggerTime, ttsContent, type,
+                singleOpenId, null);
+    }
 }

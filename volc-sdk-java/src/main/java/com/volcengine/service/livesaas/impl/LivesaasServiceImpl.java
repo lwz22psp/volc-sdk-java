@@ -5722,6 +5722,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public ListAvailableVoiceProfilesResponse listAvailableVoiceProfiles(ListAvailableVoiceProfilesRequest listAvailableVoiceProfilesRequest) throws Exception {
+        RawResponse response = query(Const.ListAvailableVoiceProfiles, Utils.paramsToPair(listAvailableVoiceProfilesRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListAvailableVoiceProfilesResponse res = JSON.parseObject(response.getData(), ListAvailableVoiceProfilesResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public ListLiveScreenshotResponse listLiveScreenshot(ListLiveScreenshotRequest listLiveScreenshotRequest) throws Exception {
         RawResponse response = query(Const.ListLiveScreenshot, Utils.paramsToPair(listLiveScreenshotRequest));
         if (response.getCode()!= SdkError.SUCCESS.getNumber()) {

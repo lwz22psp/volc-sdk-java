@@ -3181,6 +3181,16 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetTaskResponse getTask(GetTaskRequest getTaskRequest) throws Exception;
+
+    /**
+     * 查询项目可用于创建直播质检任务的音色。
+     *
+     * @param listAvailableVoiceProfilesRequest 项目和分页参数
+     * @return 当前页的可用音色及总数
+     * @throws Exception 请求失败或服务端返回错误
+     */
+    ListAvailableVoiceProfilesResponse listAvailableVoiceProfiles(ListAvailableVoiceProfilesRequest listAvailableVoiceProfilesRequest) throws Exception;
+
     /**
      * listLiveScreenshot
      * @param listLiveScreenshotRequest ListLiveScreenshotRequest

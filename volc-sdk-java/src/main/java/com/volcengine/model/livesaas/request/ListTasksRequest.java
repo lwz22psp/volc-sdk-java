@@ -41,4 +41,7 @@ public class ListTasksRequest {
     List<Long> TaskIds;
     @JSONField(name = "MuteEnabledOnly")
     Boolean MuteEnabledOnly;
+    // true 仅查询开启替换的任务；false 或不传时不按替换开关筛选。
+    @JSONField(name = "VoiceReplaceEnabledOnly")
+    Boolean VoiceReplaceEnabledOnly;
 }

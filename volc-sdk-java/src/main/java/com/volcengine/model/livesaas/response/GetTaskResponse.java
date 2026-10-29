@@ -48,5 +48,7 @@ public class GetTaskResponse {
         String ActivityName;
         @JSONField(name = "MuteEnabled")
         Boolean MuteEnabled;
+        @JSONField(name = "VoiceReplaceEnabled")
+        Boolean VoiceReplaceEnabled;
     }
 }

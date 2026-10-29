@@ -26,7 +26,8 @@ public class SingleDemo {
         try {
             SingleParam singleParam = SingleParam.builder().numberPoolNo("NP162215338604095636").phone("19900000000").singleOpenId("test122002")
                     .numberList(Arrays.asList("075561169508")).numberType(0).resource("618f1ee1d8a94d4d8eaee06482fda70e")
-                    .triggerTime(new Date(System.currentTimeMillis() + 30 * 1000)).type(0).build();
+                    .triggerTime(new Date(System.currentTimeMillis() + 30 * 1000)).type(0)
+                    .maxQueueWaitMinutes(5L).build();
 
             CommonResponse<SingleAppendResult> operationResponse = vmsService.singleBatchAppend(SingleAppendRequest.builder().list(Arrays.asList(singleParam)).build());
             System.out.println(JSON.toJSONString(operationResponse));

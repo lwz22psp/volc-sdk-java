@@ -803,6 +803,7 @@ public class Const {
     public static final String GetScenario = "GetScenario";
     public static final String ListTasks = "ListTasks";
     public static final String CreateTask = "CreateTask";
+    public static final String ListAvailableVoiceProfiles = "ListAvailableVoiceProfiles";
     public static final String ListVideoScenarios = "ListVideoScenarios";
     public static final String GetVideoScenario = "GetVideoScenario";
     public static final String CreateVideoTask = "CreateVideoTask";

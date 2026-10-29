@@ -32,5 +32,11 @@ public class CreateTaskRequest {
     List<SpecifiableRuleArg> SpecifiableRuleArgs;
     @JSONField(name = "MuteEnabled")
     Boolean MuteEnabled;
+    // 仅支持企业直播直播间质检，缺省为 false，可与消音同时开启。
+    @JSONField(name = "VoiceReplaceEnabled")
+    Boolean VoiceReplaceEnabled;
+    // 开启替换时必填，使用同项目 ListAvailableVoiceProfiles 返回的音色版本 ID。
+    @JSONField(name = "VoiceProfileID")
+    Long VoiceProfileID;
 
 }

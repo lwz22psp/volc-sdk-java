@@ -226,6 +226,11 @@ public class GetReportResponse {
         String MuteExecutionStatus;
         @JSONField(name = "MuteExecutionDetail")
         MuteExecutionDetail MuteExecutionDetail;
+        // PENDING、SUCCEEDED、FALLBACK_MUTE、FAILED；缺省表示没有替换执行状态。
+        @JSONField(name = "VoiceReplaceExecutionStatus")
+        String VoiceReplaceExecutionStatus;
+        @JSONField(name = "VoiceReplaceExecutionDetail")
+        VoiceReplaceExecutionDetail VoiceReplaceExecutionDetail;
     }
 
     @Data
@@ -244,6 +249,21 @@ public class GetReportResponse {
         String MuteExecutionStatus;
         @JSONField(name = "MuteExecutionDetail")
         MuteExecutionDetail MuteExecutionDetail;
+    }
+
+    @Data
+    public static class VoiceReplaceExecutionDetail {
+        // 命中区间的 PTS，单位为毫秒。
+        @JSONField(name = "BeginPtsMs")
+        Long BeginPtsMs;
+        @JSONField(name = "EndPtsMs")
+        Long EndPtsMs;
+        // 执行结果发生时间，Unix 毫秒时间戳；PENDING 时为 0。
+        @JSONField(name = "OccurredAt")
+        Long OccurredAt;
+        // 候选替换文本，不代表已经成功执行。
+        @JSONField(name = "ReplacementText")
+        String ReplacementText;
     }
 
     @Data
